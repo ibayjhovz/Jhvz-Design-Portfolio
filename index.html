@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JHVZ Design | Multimedia & Graphic Design Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Social Icons -->
+    <!-- Font Awesome for Responsive Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation System -->
     <nav class="navbar">
         <div class="logo">JHVZ <span>DESIGN</span></div>
+        
+        <!-- Hamburger Menu Icon for Mobile -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
             <li><a href="#work">Featured Work</a></li>
@@ -35,7 +41,7 @@
         <h2 class="section-title">Featured Projects</h2>
         
         <div class="portfolio-grid">
-            <!-- Project 1: Static Graphic Design -->
+            <!-- Project 1 -->
             <div class="portfolio-item">
                 <div class="item-image">
                     <img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Brand+Identity+Design" alt="Brand Identity">
@@ -46,10 +52,9 @@
                 </div>
             </div>
 
-            <!-- Project 2: Video/Motion Asset -->
+            <!-- Project 2 -->
             <div class="portfolio-item">
                 <div class="item-image">
-                    <!-- Swap image for an embedded video if needed -->
                     <img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Cinematic+Video+Showreel" alt="Video Editing">
                 </div>
                 <div class="item-info">
@@ -58,7 +63,7 @@
                 </div>
             </div>
 
-            <!-- Project 3: Social Media Kit -->
+            <!-- Project 3 -->
             <div class="portfolio-item">
                 <div class="item-image">
                     <img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Social+Media+Branding" alt="Social Media Graphics">
@@ -69,7 +74,7 @@
                 </div>
             </div>
 
-            <!-- Project 4: Cyberpunk/Noir Style Work -->
+            <!-- Project 4 -->
             <div class="portfolio-item">
                 <div class="item-image">
                     <img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Creative+Photo+Manipulation" alt="Photo Manipulation">
@@ -98,7 +103,6 @@
         <h2>Let's Build Something Great</h2>
         <p>Available for freelance, contract, and long-term collaborative projects.</p>
         
-        <!-- Simple GitHub-compatible Form (Can be hooked up to Formspree later) -->
         <form class="contact-form" action="#" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
