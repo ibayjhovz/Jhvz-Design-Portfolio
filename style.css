@@ -8,13 +8,14 @@
 }
 
 body {
-    background-color: #0b0b0d; /* Premium deep dark background */
+    background-color: #0b0b0d;
     color: #e5e5e7;
     line-height: 1.6;
+    overflow-x: hidden; /* Prevents unwanted horizontal mobile shaking */
 }
 
 span.highlight {
-    color: #ff3366; /* Vibrant accent color (Pink/Neon Red) */
+    color: #ff3366;
 }
 
 a {
@@ -22,7 +23,13 @@ a {
     color: inherit;
 }
 
-/* --- Navigation --- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Navigation System --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,6 +41,7 @@ a {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #1a1a1f;
+    transition: all 0.3s ease;
 }
 
 .navbar .logo {
@@ -66,6 +74,16 @@ a {
     color: #ff3366;
 }
 
+/* Menu Toggle Hidden on Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 /* --- Hero Section --- */
 .hero-section {
     height: 100vh;
@@ -76,13 +94,13 @@ a {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 5vw, 3.8rem); /* Dynamically shrinks/grows with browser width */
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: #a0a0a5;
     max-width: 600px;
     margin-bottom: 40px;
@@ -105,7 +123,7 @@ a {
     transform: translateY(-3px);
 }
 
-/* --- Portfolio Grid --- */
+/* --- Portfolio Grid System --- */
 .portfolio-section {
     padding: 100px 8%;
 }
@@ -127,7 +145,7 @@ a {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto-fits dynamic viewport sizes */
     gap: 30px;
 }
 
@@ -142,13 +160,6 @@ a {
 .portfolio-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(255, 51, 102, 0.1);
-}
-
-.item-image img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
 }
 
 .item-info {
@@ -222,6 +233,7 @@ a {
     border-radius: 4px;
     font-size: 1rem;
     outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .contact-form input:focus, 
@@ -252,11 +264,51 @@ a {
     color: #ff3366;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet Optimization (Less than 1024px) */
+@media (max-width: 1024px) {
     .navbar { padding: 20px 5%; }
-    .nav-links { display: none; } /* Dropdown logic can be added later */
     .hero-section { padding: 0 5%; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .portfolio-section, .about-section, .contact-section { padding: 60px 5%; }
+    .portfolio-section, .about-section, .contact-section { padding: 80px 5%; }
+    .footer { padding: 40px 5%; }
+}
+
+/* Mobile Layout Shift (Less than 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Shows hamburger menu icon */
+    }
+
+    .nav-links {
+        display: none; /* Collapses traditional menu completely */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #0b0b0d;
+        border-bottom: 1px solid #1a1a1f;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+    }
+
+    /* Active utility state for mobile menu toggle */
+    .nav-links.active {
+        display: flex; 
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-icons a {
+        margin: 0 10px;
+    }
 }
